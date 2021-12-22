@@ -2,18 +2,18 @@ package cloud.autotests.tests;
 
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Description;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static cloud.autotests.tests.TestData.NUMBER_OF_PRODUCTS;
+import static cloud.autotests.tests.TestData.PRODUCT_NAME;
 import static com.codeborne.selenide.Selectors.byAttribute;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.title;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProductPageTests extends TestBase {
-    private static final String PRODUCT_NAME = "Ferribiella аксессуары игрушка \"Джунгли зовут\" в ассортименте, 18 см";
-    private static final String NUMBER_OF_PRODUCTS = "3";
 
     @Test
     @Description("Проверка страницы товара")

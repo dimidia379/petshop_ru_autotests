@@ -12,6 +12,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import static com.codeborne.selenide.Selenide.open;
+
 
 @ExtendWith({AllureJunit5.class})
 public class TestBase {
@@ -19,6 +21,7 @@ public class TestBase {
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DriverSettings.configure();
+        open("https://www.petshop.ru/catalog/dogs/games/zveri_pticy/igrushka_dzhungli_zovut_v_assortimente_18_sm_animali_safari_lattice_treccia_9pz_18cm_tp852_47208/");
     }
 
     @AfterEach

@@ -12,14 +12,8 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProductPageTests extends TestBase {
-    private static final String PRODUCT_PAGE_URL = "https://www.petshop.ru/catalog/dogs/games/zveri_pticy/igrushka_dzhungli_zovut_v_assortimente_18_sm_animali_safari_lattice_treccia_9pz_18cm_tp852_47208/";
     private static final String PRODUCT_NAME = "Ferribiella аксессуары игрушка \"Джунгли зовут\" в ассортименте, 18 см";
     private static final String NUMBER_OF_PRODUCTS = "3";
-
-    @BeforeAll
-    static void beforeAll() {
-        open(PRODUCT_PAGE_URL);
-    }
 
     @Test
     @Description("Проверка страницы товара")

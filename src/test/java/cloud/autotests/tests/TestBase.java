@@ -30,22 +30,24 @@ public class TestBase {
 
     @BeforeAll
     static void setUp() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        DriverSettings.configure();
+
 
         Configuration.browserSize = "1920x1080";
 
-        String url = System.getProperty("url", "selenoid.autotests.cloud");
+        String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
         String login = credentials.login();
         String password = credentials.password();
-        Configuration.remote = format("https://%s:%s@%s/wd/hub/", login, password, url);
+        Configuration.remote = format("https://%s:%s@%s", login, password, url);
+
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        DriverSettings.configure();
 
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-
-        Configuration.browserCapabilities = capabilities;
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("enableVNC", true);
+//        capabilities.setCapability("enableVideo", true);
+//
+//        Configuration.browserCapabilities = capabilities;
     }
 
     @BeforeEach

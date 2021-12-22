@@ -35,10 +35,10 @@ public class TestBase {
 
         Configuration.browserSize = "1920x1080";
 
-        String url = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
+        String url = System.getProperty("url", "selenoid.autotests.cloud");
         String login = credentials.login();
         String password = credentials.password();
-        Configuration.remote = format("https://%s:%s@%s", login, password, url);
+        Configuration.remote = format("https://%s:%s@%s/wd/hub/", login, password, url);
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();

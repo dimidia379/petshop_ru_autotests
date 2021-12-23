@@ -11,85 +11,53 @@
 
 ## Стек технологий:
 
-![Java](images/logos/Java.png)![Gradle](images/logos/Gradle.png)![JUnit5](images/logos/JUnit5.png)![Selenide](images/logos/Selenide.png)![Selenoid](images/logos/Selenoid.png)![Allure Report](images/logos/Allure_Report.png)![AllureTestOps](images/logos/AllureTestOps.png)![Jenkins](images/logos/Jenkins.png)![Telegram](images/logos/Telegram.png)![Jira](images/logos/Jira.png)![Intelij_IDEA](images/logos/Intelij_IDEA.png)![Github](images/logos/Github.png)
+![Java](images/logos/Java.png)![Gradle](images/logos/Gradle.png)![JUnit5](images/logos/JUnit5.png)![Selenide](images/logos/Selenide.png)![Selenoid](images/logos/Selenoid.png)![Allure Report](images/logos/Allure_Report.png)![AllureTestOps](images/logos/AllureTestOps.png)![Jenkins](images/logos/Jenkins.png)![Telegram](images/logos/Telegram.png)![Intelij_IDEA](images/logos/Intelij_IDEA.png)![Github](images/logos/Github.png)
 
-Java, Gradle, JUnit5, Selenide, Selenoid, Allure Reports, Allure TestOps, Jenkins,  Telegram, Jira, Intelij IDEA, Git
+Java, Gradle, JUnit5, Selenide, Selenoid, Allure Reports, Allure TestOps, Jenkins,  Telegram,  Intelij IDEA, Git
 
-### Для запусков автотестов используется Jenkins.
-
-##### Примеры готовых сборок можно посмотреть [по ссылке](https://jenkins.autotests.cloud/job/new_job/)
-
-### Используемые параметры по умолчанию
-
-* remoteDriverUrl (url address from selenoid or grid)
-* videoStorage (url address where you should get video)
-* threads (number of threads)
-
-Запуск тестов с заполненным файлом configurationSelenoid.properties:
-
-```bash
+### Для запуска локально
+```
 gradle clean test
 ```
 
-Запуск тестов с не заполненным файлом configurationSelenoid.properties:
-
+### Для запуска удаленно
 ```bash
-gradle clean -DRemoteBrowserUrl=https://user1:1234@selenoid.autotests.cloud/wd/hub/ -DvideoStorage=https://selenoid.autotests.cloud/video/ -Dthreads=1 test
+clean
+test
+-Dbrowser=${BROWSER}
+-DbrowserVersion=${BROWSER_VERSION}
+-DbrowserSize=${BROWSER_SIZE}
+-DbrowserMobileView="${BROWSER_MOBILE}"
+-DremoteDriverUrl=${REMOTE_DRIVER_URL}
+-DvideoStorage=https://${REMOTE_DRIVER_URL}/video/
+-Dthreads=${THREADS}
 ```
 
-Serve report:
 
-```bash
-allure serve build/allure-results
-```
+## Для запусков автотестов используется Jenkins.
 
-### Запуск тестов в Jenkins
+##### Пример готовой сборки можно посмотреть [по ссылке](https://jenkins.autotests.cloud/job/09-Julia_Zvereva-lesson13/)
 
-##### Открыть сборку Jenkins [по ссылке](https://jenkins.autotests.cloud/job/new_job/)
-##### Нажать на кнопку "Собрать с параметрами"
+### Параметры запуска в Jenkins
+![Jenkins_params](images/screenshots/Jenkins_params.png)
 
-![Jenkins_Start](./img/Jenkins_Start.png)
+### Статистика запусков в Jenkins
+![Jenkins_statistic](images/screenshots/Jenkins_statistic.png)
 
-##### Выбрать параметры, нажать на кнопку "Собрать"
+### Отчёт о прохождении автотестов в Allure Report
+![Allure_report](images/screenshots/Allure_report.png)
 
-![Jenkins_Start](./img/Jenkins_Start1.png)
+### Список автотестов в Allure Report
+![Allure_suite](images/screenshots/Allure_suite.png)
 
-##### Дождаться выполнения сборки. нажать на кнопку "Allure Report"
+### Хранение тестовой документации в Allure TestOps
+![Testops](images/screenshots/Testops_cases.png)
 
-![Jenkins_Start](./img/Jenkins_Start2.png)
+### Прохождение тестов в Allure TestOps
+![Testops](images/screenshots/Testops.png)
 
-### Анализ результатов запусков в Jenkins через Allure Reports
+### Уведомления о прохождении автотестов в Telegram
+![Telegram](images/screenshots/Telegram.png)
 
-![Jenkins_Allure_Reports](./img/Jenkins_Allure_Reports.png)
-
-![Jenkins_Allure_Reports1](./img/Jenkins_Allure_Reports1.png)
-
-### Для отображения результатов сборок также используется Allure TestOps.
-
-##### Примеры запусков и их результаты можно посмотреть [по ссылке](https://allure.autotests.cloud/project/111222/dashboards)
-
-### Пример списка тестов и их прохождения в Allure TestOps
-
-![Allure TestOps](./img/Allure_TestOps.png)
-
-### Результаты запусков Launches в Allure TestOps
-
-![Allure_Launches](./img/Allure_Launches.png)
-
-### Основной Dashboards
-
-![Allure Dashboards](img/Allure_Dashboards.png)
-
-### Добавлена интеграция с Jira, где можно посмотреть запускаемые кейсы и их результаты.
-
-##### Перейти в Jira можно [по ссылке](https://jira.autotests.cloud/browse/HOMEWORK-111222)
-
-![Jira](./img/Jira.png)
-
-### После прохождения тестов в telegram канал приходит оповещение с результами.
-
-![Telegram](./img/Telegram.jpg)
-
-### Пример прохождения тестов можно посмотреть на видео
-
-![video](./img/Video.gif)
+### Видео о прохождении тестов
+![video](images/screenshots/vid.gif)
